@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+
+<body>
+    <center> <img src="logo2.png" alt="logo da empresa" style="width: 40%;"> </center> <br>
+    <center>
+        <div>
+            <h1> Simulador Financeiro </h1>
+        </div>
+    </center>
+    Quantidade de amostras por caixa <input id="quantidade_porcaixa" type="text" style="margin-right: 70px;"> Quantidade
+    de caixas <input id="quantidade_caixa" type="text" style="margin-right: 70px;">
+    Distância do deslocamento <input id="distancia" type="text">
+    <span id="valor"></span>
+    <span id="preco_deslocamento"></span>
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+
+
+
+
+</body>
+
+</html>
+<script>
+
+    function calcular() {
+        var quantidade = Number(quantidade_caixa.value);
+        var deslocamento = Number(distancia.value);
+        
+        resultado.innerHTML =
+     `O valor aproximado é de: ${(300 * quantidade) + (1000 * deslocamento)}`;
+
+    }
+
+
+</script>
