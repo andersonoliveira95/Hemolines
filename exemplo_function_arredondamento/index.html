@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="in_num">
+    <br><br>
+    <button onclick="vamo()">OPA</button>
+    <br><br>
+    
+    <div id="mostrar"></div>
+</body>
+
+</html>
+<script>
+    function vamo() {
+        
+        var num = Number(in_num.value);
+        var conv = Math.ceil(num);
+
+        alert(conv);
+
+    }
+
+</script>
