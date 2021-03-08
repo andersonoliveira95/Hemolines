@@ -20,58 +20,61 @@
     </div>
     <div class="corpo">
         <center>
-            <h2 class="titulo">Faça sua simulação aqui !!</h2>
-            
+            <h1 class="titulo">Faça sua simulação aqui !!</h1>
+
             <br>
-         <p class="texto">
-            informe todos os campos abaixo:
-            <br><br><br>
-            Nome do solicitante:
-            <input id="nome" class="input" type="text">
-            
-            qtd de veículos para instalação:
-            <input id="veiculo" class="input" type="text">
-            <br><br>
-            quantidade de caixas:
-            <input id="caixa" class="input"type="text">
-            
-            Distancia do transporte em km:
-            <input id="distancia" class="input"type="text"><br>
-        
-         </p>
-         
-        
+            <p class="texto">
+                informe todos os campos abaixo:
+                <br><br><br>
+                Nome do solicitante:
+                <input id="nome" class="input" type="text">
+
+                qtd de veículos para instalação:
+                <input id="veiculo" class="input" type="text">
+                <br><br>
+                quantidade de caixas:
+                <input id="caixa" class="input" type="text">
+
+                Distancia do transporte em km:
+                <input id="distancia" class="input" type="text"><br>
+
+            </p>
+
+
             <button class="button" onclick="calcular()">Calcular</button>
         </center>
         <br><br>
-        <div class="titulo"><br> 
+        <div class="titulo"><br>
+            <b style="color: rgb(233, 62, 62);">Valores dos materiais e mão de obra</b>
+            <br>
             1 sensor por caixa = R$15,00 <br>
             1 placa por caminhõa= R$120,00 <br>
-            instalação = R$150,00 por veiculo + R$30,00 por sensor<br>
-            monitoramento para cada 1km = R$40,00 </div>
-          <br>
+            instalação = R$150,00 por veículo + R$30,00 por sensor<br>
+            monitoramento para cada 1km = R$40,00
+        </div>
+        <br>
         <h3 class="titulo">Resultado da simulação</h3>
-        
+
         <div id="div_resultado"></div>
-        
-        
-        
-     </div>
+
+
+
+    </div>
 
 </body>
-  
+
 
 <script>
-    function calcular(){
-       
-    var cx = caixa.value * 45
-    var vc = veiculo.value * 270
-    var instal = cx + vc 
-    var monitorando = distancia.value * 40
-    var valortotal = instal + monitorando
+    function calcular() {
 
-    div_resultado.innerHTML = `<br>* Como serão instalados os sensores em ${caixa.value} caixas, 
-e você possui ${veiculo.value} veiculos,
+        var cx = caixa.value * 45
+        var vc = veiculo.value * 270
+        var instal = cx + vc
+        var monitorando = distancia.value * 40
+        var valortotal = instal + monitorando
+
+        div_resultado.innerHTML = `<br>* Como serão instalados os sensores em ${caixa.value} caixas, 
+e você possui ${veiculo.value} veículos,
  a instalação do sistema vai custar um total de:<b>R$${instal},00</b><br>
 
  E o munitoramento do seu transporte vai custar um total de <b>R$${monitorando},00</b> de acordo com a quantidade de km's informados,
@@ -79,9 +82,9 @@ e você possui ${veiculo.value} veiculos,
 <br><br>
 obs: a instalação é cobrada uma unica vez.
 <br><br><br>
- <b style="color: rgb(233, 62, 62);">${nome.value}</b> tenha um otimo dia e não deixe de entrar em contato para executar seu projeto conosco `
+ <b style="color: rgb(233, 62, 62);">${nome.value}</b> tenha um ótimo dia, e não deixe de entrar em contato para executar seu projeto conosco `
 
-} 
+    }
 
 </script>
 
