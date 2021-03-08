@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - Hemolines</title>
+
+    <link rel="stylesheet" href="simulador.css">
+</head>
+
+<body>
+    <center style="padding-top: 50px;">
+        <b class="titulo_main">SIMULADOR FINANCEIRO</b>
+
+        <br><br>
+
+        <img style="height: 100px" src="logo2.png" alt="Logo da empresa Hemolines">
+
+        <br><br><br><br>
+
+        <span class="texto_main">Quantas amostras são transportadas por vez, em média?</span>
+        <input class="caixa" type="text" id="qtd_amostras" placeholder="Ex: 200">
+
+        <br><br>
+
+        <span class="texto_main">Qual é o volume, em litros, do tipo de caixa utilizado?</span>
+        <input class="caixa" type="text" id="vol_caixas" placeholder="Ex: 24">
+
+        <br><br><br><br>
+
+        <button onclick="calcular()" class="botao">CALCULAR ORÇAMENTO</button>
+
+        <br><br><br><br>
+
+        <div class="texto" id="div_resultado"></div>
+
+    </center>
+</body>
+
+</html>
+
+<script>
+    function calcular(params) {
+        // Calculando a quantidade de amostras que terão em cada caixa
+        var qtd_por_caixa = Number(vol_caixas.value) * 10;
+
+        /* Calculando a quantidade de caixas que serão necessárias
+        Arredondando para cima o resultado, para ser sempre um número inteiro*/
+        var qtd_caixas = Math.ceil(Number(qtd_amostras.value) / qtd_por_caixa);
+     
+
+        /* Calculando a quantidade de sensores necessária por caixa, e arredondando
+        para cima qualquer número não inteiro:
+
+        Valores de volume menores que 30, resultarão em 2, 
+        de 30 até 58, em 3, de 59 à 87, em 4, e assim em diante*/
+        var  qtd_sensores = Math.ceil(Number(vol_caixas.value) / 29);
+
+        
+        // Calculando a quantidade total de sensores necessária
+        var total_sensores = qtd_sensores * qtd_caixas;
+
+        // Definindo os valores do orçamento
+
+        // Para cada sensor, será cobrada uma taxa de 15 reais
+        var val_sensores = total_sensores * 15;
+
+        // É cobrada uma taxa de 100 reais por cada caixa à ser equipada com sensores
+        var val_caixas = qtd_caixas * 100;
+
+        // É cobrada uma taxa de serviço, quanto maior o pedido, menor esse valor
+        var val_taxa =  Math.ceil(100000 / Number(qtd_amostras.value));
+
+        // Por fim, somamos todas as taxas, resultando no orçamento final
+        var val_total = val_sensores + val_caixas + val_taxa;
+
+
+        // Mostrando o resultado, com os valores em negrito
+        div_resultado.innerHTML =
+            `Você transporta em média <b>${qtd_amostras.value}</b> amostras<br>
+            Suas caixas têm o volume de <b>${vol_caixas.value}</b> litros cada<br><br>
+
+            Serão necessárias <b>${qtd_caixas}</b> caixa(s), com <b>${qtd_sensores}</b> sensor(es) cada<br>
+            Ou seja, você precisará de <b>${total_sensores}</b> sensores no total<br><br>
+        
+            Para os valores informados, nosso orçamento será de:<br>
+            <b>R$ ${val_total}</b>`;
+    }
+</script>
