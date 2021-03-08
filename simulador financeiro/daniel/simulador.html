@@ -68,13 +68,10 @@
         var val_sensores = total_sensores * 15;
 
         // É cobrada uma taxa de 100 reais por cada caixa à ser equipada com sensores
-        var val_caixas = qtd_caixas * 100;
-
-        // É cobrada uma taxa de serviço, quanto maior o pedido, menor esse valor
-        var val_taxa =  Math.ceil(100000 / Number(qtd_amostras.value));
+        var val_caixas = qtd_caixas * 200;
 
         // Por fim, somamos todas as taxas, resultando no orçamento final
-        var val_total = val_sensores + val_caixas + val_taxa;
+        var val_total = val_sensores + val_caixas;
 
 
         // Mostrando o resultado, com os valores em negrito
