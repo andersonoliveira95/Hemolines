@@ -6,37 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="simuladorfinanceiro.css">
+    
+    
 </head>
 
 <body>
-    <center> <img src="logo2.png" alt="logo da empresa" style="width: 40%;"> </center> <br>
+     <center> <img class=logo2 src="logo2.png" alt="logo da empresa"> </center> <br>
     <center>
         <div>
-            <h1> Simulador Financeiro </h1>
+            <h1> <b> Simulador Financeiro </b></h1>
         </div>
     </center>
-    Quantidade de amostras por caixa <input id="quantidade_porcaixa" type="text" style="margin-right: 70px;"> Quantidade
-    de caixas <input id="quantidade_caixa" type="text" style="margin-right: 70px;">
-    Distância do deslocamento <input id="distancia" type="text">
-   <br>
-    <button onclick="calcular()">Calcular</button>
-    <div id="resultado"></div>
-
-
-
-
+    
+  <center>  Quantidade de caixas <input id="quantidade" type="text" placeholder="quantidade"> 
+    Distância do deslocamento <input id="distancia" type="text" placeholder="km">
+    <button onclick="calculo()">Calcular Orçamento</button> <br> <br> </center>
+   <center><span id="valor"></span> </center> 
+  <center> <img  id=img2 style="height: 300px; display: none;" src="eficiencia.png" alt="simbolo eficiencia"> </center>
 </body>
 
 </html>
 <script>
 
-    function calcular() {
-        var quantidade = Number(quantidade_caixa.value);
-        var deslocamento = Number(distancia.value);
-        
-        resultado.innerHTML =
-     `O valor aproximado é de: ${(300 * quantidade) + (1000 * deslocamento)}`;
+    function calculo() {
+       var sensor = Number(quantidade.value);
+       var deslocamento = Number (distancia.value * 50);
+       var total = Number (sensor + deslocamento);
 
+
+        valor.innerHTML =
+     `Será utilizado ${sensor} sensor(es) para atender sua necessidade. <br>
+      Investindo ${total}R$ terá nossos serviços garantindo segurança e eficiência em todo processo de transportes de amostras de sangue!`
+      
+      img2.style.display='inline';
     }
 
 
