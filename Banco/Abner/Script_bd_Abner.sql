@@ -40,11 +40,18 @@ create table tb_caixa(
     volume_caixa int not null
 );
 
-create table sensor(
+create table tb_sensor(
 	id_sensor int primary key auto_increment,
     temperatura_media float(4,2),
 	temperatura_max float(4,2),
     temperatura_min float(4,2)
+);
+
+create table tb_registro_temperatura(
+	id_sensor int,
+    temperatura_registro float(4,2),
+	dia_registro date,
+    hora_registro time,
 );
 
 
