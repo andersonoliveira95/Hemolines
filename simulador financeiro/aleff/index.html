@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <title>Hemolines Solutions - Home</title>
+</head>
+
+<body>
+    <!-- <nav>
+        <div>
+            <img class="logo" src="assets/img/logo.png" alt="">
+        </div>
+        <i>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Quem somos</a></li>
+                <li><a href="">Nossa Solução</a></li>
+                <li>
+                    <a href="">Contato</a>
+                    <ul>
+                        <li><a href="">Adicionar</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a href="">Remover</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a href="">Editar</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a href="">Consultar</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </i>
+    </nav> -->
+    <div class="left">
+        <center>
+            <img class="logo" src="assets/img/logo.png" alt="">
+        </center>
+    </div>
+    <div class="right">
+        <center class="items-right">
+            <h1 class="title">Simulador Financeiro</h1>
+
+            <p>Quantidade de amostras:</p>
+            <input type="text" id="qntd_amostras">
+                <br><br>
+            <p>Quantidade de Veículos:</p>
+            <input type="text" id="qntd_veiculos">
+                <br><br>
+            <p>Volume das caixas:</p>
+            <input type="text" id="vol_caixas">
+                <br>
+            <button onclick="calc_orc()" type="submit">CALCULAR ORÇAMENTO</button>
+        </center>
+    </div>
+
+    <div class="info">
+        <div class="info-item">
+            <h1>Volume</h1>
+            <p id="volume"></p>
+        </div>
+        <div class="info-item">
+            <h1>Caixas</h1>
+            <p id="caixas"></p>
+        </div>
+        <div class="info-item">
+            <h1>Sensores</h1>
+            <p id="sensores"></p>
+        </div>
+        <div class="info-item">
+            <h1>Valor Total</h1>
+            <p id="valor_total"></p>
+        </div>
+    </div>
+</body>
+</html>
+    <script>
+        function calc_orc() {
+            // recebendo os valores digitados
+            var quantidade_amostras = Number(qntd_amostras.value);
+            var quantidade_veiculos = Number(qntd_veiculos.value);
+            var volume_caixas = Number(vol_caixas.value);
+
+
+
+
+            volume.innerHTML = `Cada caixa terá o volume de ${volume_caixas} litros`;
+            caixas.innerHTML = `Será preciso de caixa(s) ${quantidade_caixas}`;
+            sensores.innerHTML = `Cada caixa terá sensor(es) ${total_sensores}`;
+            valor_total.innerHTML = `O orçamento será de`;
+
+
+        }
+    </script>
