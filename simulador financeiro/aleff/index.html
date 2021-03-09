@@ -93,13 +93,15 @@
             var quantidade_veiculos = Number(qntd_veiculos.value);
             var volume_caixas = Number(vol_caixas.value);
 
-
+            var quantidade_caixas = 0;
+            var total_sensores = 0;
+            var valor = 0;
 
 
             volume.innerHTML = `Cada caixa terá o volume de ${volume_caixas} litros`;
-            caixas.innerHTML = `Será preciso de caixa(s) ${quantidade_caixas}`;
+            caixas.innerHTML = `Será preciso de caixa(s) ${quantidade_caixas} em cada veículo`;
             sensores.innerHTML = `Cada caixa terá sensor(es) ${total_sensores}`;
-            valor_total.innerHTML = `O orçamento será de`;
+            valor_total.innerHTML = `O orçamento será de ${valor}`;
 
 
         }
