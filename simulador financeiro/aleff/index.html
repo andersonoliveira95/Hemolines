@@ -66,7 +66,7 @@
         </center>
     </div>
 
-    <div class="info">
+    <div class="info" id="info">
         <div class="info-item">
             <h1>Volume</h1>
             <p id="volume"></p>
@@ -84,25 +84,33 @@
             <p id="valor_total"></p>
         </div>
     </div>
+    <div class="sobre">
+
+    </div>
+    <div class="imagem-sobre">
+
+    </div>
 </body>
 </html>
     <script>
         function calc_orc() {
-            // recebendo os valores digitados
-            var quantidade_amostras = Number(qntd_amostras.value);
-            var quantidade_veiculos = Number(qntd_veiculos.value);
-            var volume_caixas = Number(vol_caixas.value);
+            if (vol_caixas.value > 10) {
+                alert('Volume máximo permitido de 10 litros!');
+            } else {
+                // recebendo os valores digitados
+                var quantidade_amostras = Number(qntd_amostras.value);
+                var quantidade_veiculos = Number(qntd_veiculos.value);
+                var volume_caixas = Number(vol_caixas.value);
 
-            var quantidade_caixas = 0;
-            var total_sensores = 0;
-            var valor = 0;
+                var quantidade_caixas = (quantidade_amostras / quantidade_veiculos) / volume_caixas;
+                var total_sensores = quantidade_caixas * quantidade_veiculos;
+                var instalacao = quantidade_veiculos * 200; 
+                var valor = (total_sensores * 12) + 100 + instalacao + 150;       
 
-
-            volume.innerHTML = `Cada caixa terá o volume de ${volume_caixas} litros`;
-            caixas.innerHTML = `Será preciso de caixa(s) ${quantidade_caixas} em cada veículo`;
-            sensores.innerHTML = `Cada caixa terá sensor(es) ${total_sensores}`;
-            valor_total.innerHTML = `O orçamento será de ${valor}`;
-
-
+                volume.innerHTML = `Cada caixa terá o volume de ${volume_caixas} litros`;
+                caixas.innerHTML = `Cada veículo transportará ${Math.ceil(quantidade_caixas)} caixa(s)`;
+                sensores.innerHTML = `será utilizado ${Math.ceil(total_sensores)} sensor(es)`;
+                valor_total.innerHTML = `O orçamento será de R$ ${valor.toFixed(2)}`;
+            }
         }
     </script>
