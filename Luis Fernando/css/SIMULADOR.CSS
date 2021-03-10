@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: helvetica;
+    color: #323232;
+    border: none;
+}
+
+body {
+
+    background-image: url(../caminhao.jpeg);
+    background-size: cover;
+    margin: 110px;
+
+}
+
+img {
+    margin: 0px;
+    padding: 5px;
+}
+h3{
+    padding: 0px;
+    font-size: medium;
+    color: black;
+}
+
+button {
+    border-radius: 50px;
+    margin-top: 50px;
+    padding: 15px;
+    border-bottom: 4px solid #483D8B;
+    cursor: pointer;
+    background-color: rgba(72,61,139,0.10);
+    color: black;
+}
+
+center {
+    background-color: rgba(72,61,139,0.3);
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    margin-top: 10vh;
+    border-radius: 10px;
+    text-align: center;  
+}
+input, h1 {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+input {
+    font-weight: bold;
+    font-size: .8rem;
+
+}
+input {
+    border-bottom: 2px solid #323232;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+input {
+    border-bottom: 5px solid #8b0808;
+}
+input {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 30px;
+    border-radius: 50px;
+    margin-top: 10px;
+    color: #FFF;
+    cursor: pointer;
+}
+input {
+    background-color: rgba(72,61,139,0.5);
+}
+::placeholder {
+    background-color: rgba(72,61,139,0.1);
+    
+}
+h1 {
+    font-weight: bold;
+    color: black;
+  
+}
