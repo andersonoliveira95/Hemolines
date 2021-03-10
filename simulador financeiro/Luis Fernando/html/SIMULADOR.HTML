@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../PROJETOS/css/SIMULADOR.CSS">
+    <title>Document</title>
+</head>
+<body>
+<center>
+  <img width="200px" src="hemolines.png" alt="">
+ <h1>Simulador financeiro</h1>
+ <br><br>
+
+ <h3>Cliente</h3>
+ <input id="cliente" type="text" placeholder="insira seu nome!">
+ <h3>Quantidade de caixas</h3>
+ <input id="quant" type="text" placeholder="insira a quantidade de caixas">
+ <h3>Distancia de entrega por KM</h3>
+ <input id="frete" type="text" placeholder="insira distancia por km">
+ <button onclick="result()">RESULTADO</button>
+ <!--LUGAR DO INNER-->
+ <br><br>
+ <span id="resultado1"></span>
+
+ </body>
+ </html>
+
+ <script>
+    // 1* FORMA
+    function result() {
+    var valor1 = Number(quant.value);
+    var valor2 = Number(frete.value);
+    var resultado = valor1 + valor2;
+    resultado1.innerHTML = `<h3>Prezado Sr.<b>${cliente.value}</b>, informamos que diacordo com nosso dados,
+    e que foi passado para nos a quantidade de <b>${quant.value}</b> caixas pela distancia de <b>${frete.value}KM</b>
+    foi calculado que o preço será de <b>R$: ${(70 * quant.value) + (50 * frete.value)},00 reais!</b></h3>`
+  }
+ </script>
+</center>
