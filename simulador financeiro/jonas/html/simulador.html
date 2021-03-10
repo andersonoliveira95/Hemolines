@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de monitoramento</title>
+
+    <link rel="stylesheet" href="../css/estilização.css">
+</head>
+
+<body>
+    <img class="logo" src="../imagem/logotipo p.png" alt="Logo da Hemolines"> <br>
+    <div class="space"></div>
+    <div class="navi">Home</div>
+    <div class="navi">Quem Somos</div>
+    <div class="navi">Nossa Solução</div>
+    <div class="navi">Contato</div>
+    <div class="fundo">
+        <div class="conteudo">
+            <h2 class="tit">Faça Já seu Orçamento!</h2>
+            <input class="inp" type="number" placeholder="Quantidade de veiculos a serem monitorados" id="quantidade_v">
+            <br>
+            <input class="inp" type="number" placeholder="Quantidade de caixas a serem transportadas" id="quantidade_c">
+            <br>
+            <input class="inp" type="number" placeholder="Distancia do transporte em km" id="km">
+            <br><br>
+            <button class="botao" onclick="calcular()">Calcular Orçamento</button>
+            <div id="mostrar_orcamento"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var serviço = km.value * 40; //40 reais por km
+    var valor_caixa = quantidade_c.value * 15; //15 reais por simulador, 1 simulador por caixa
+    var valor_veiculo = quantidade_v.value * 120; //120 reais do arduino, 1 por veiculo
+    var total = valor_caixa + valor_veiculo + serviço;
+    function calcular() {
+        mostrar_orcamento.innerHTML = `Para ${quantidade_c.value} caixas e ${quantidade_v.value} veículos seu orçamento fica R$${total}, sendo R$15,00 por caixa e R$120,00
+        por veículo, mais o serviço de monitoramento que custa R$40,00 por km.  `
+    }
+</script>
