@@ -1,0 +1,53 @@
+*{
+    font-family: helvetica;
+}
+body{
+    background-color:rgb(247, 244, 244) ;
+    color: rgb(53, 53, 53);
+}
+.content
+{
+    margin-top: 80px;
+    width: 50%;
+    background-color: rgb(199, 199, 199);
+    padding: 30px;
+    border-radius: 3px;
+    box-shadow:  3px 3px 3px rgba(0,0,0,0.35);
+    height: 380px;
+}
+.top_image
+{
+    height: 120px;
+}
+form{
+    margin-top: 15px;
+    font-weight: 800;
+    float: left;
+    margin-left: 50px;
+}
+.img_left
+{
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+input{
+    border: none;
+    height: 25px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+.btn_consultar{
+    border: none;
+    padding: 20px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(194, 47, 47);
+}
+.btn_consultar:hover{
+    background-color: rgb(151, 41, 41);
+    cursor: pointer;
+}
