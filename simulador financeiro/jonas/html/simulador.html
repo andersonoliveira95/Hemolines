@@ -34,11 +34,14 @@
 
 </html>
 <script>
-    var serviço = km.value * 40; //40 reais por km
-    var valor_caixa = quantidade_c.value * 15; //15 reais por simulador, 1 simulador por caixa
-    var valor_veiculo = quantidade_v.value * 120; //120 reais do arduino, 1 por veiculo
-    var total = valor_caixa + valor_veiculo + serviço;
+
     function calcular() {
+
+        var serviço = km.value * 40; //40 reais por km
+        var valor_caixa = quantidade_c.value * 15; //15 reais por simulador, 1 simulador por caixa
+        var valor_veiculo = quantidade_v.value * 120; //120 reais do arduino, 1 por veiculo
+        var total = valor_caixa + valor_veiculo + serviço;
+
         mostrar_orcamento.innerHTML = `Para ${quantidade_c.value} caixas e ${quantidade_v.value} veículos seu orçamento fica R$${total}, sendo R$15,00 por caixa e R$120,00
         por veículo, mais o serviço de monitoramento que custa R$40,00 por km.  `
     }
