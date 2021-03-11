@@ -29,24 +29,52 @@
             <br>
         <button onclick="calc_orcamento()">Calcular Orçamento</button>
     </div>
-
-    <div class="info" id="info">
+    <div class="info">
         <div class="info-item">
-            <h1>Volume</h1>
-            <p id="volume"></p>
+            <h1>Valor Inicial</h1>
+            <p id="valor_inicial"></p>
         </div>
         <div class="info-item">
-            <h1>Caixas</h1>
-            <p id="caixas"></p>
-        </div>
-        <div class="info-item">
-            <h1>Sensores</h1>
-            <p id="sensores"></p>
+            <h1>Valor Mensal</h1>
+            <p id="valor_ms"></p>
         </div>
         <div class="info-item">
             <h1>Valor Total</h1>
             <p id="valor_total"></p>
         </div>
+    </div>
+    <h1 class="title-info2">Como funciona nosso Orçamento?</h1>
+  <center>  
+    <div class="info2">
+            <div class="info-item2">
+                <h2>Valor Inicial</h2>
+                <ul>
+                    <li><p>A taxa inicial consiste nos valores de compra e 
+                    instalação de nossos equipamentos (sensores e placas).</p></li>
+                    <li><p>Você só paga esse valor quando ainda não é  cliente da Hemolines,
+                    ou quando deseja ampliar ainda mais sua infraestrutura de transporte monitorado!</p></li>
+                </ul>
+            </div>
+            <div class="info-item2">
+                <h2>Valor Mensal (Base)</h2>
+                <ul>
+                    <li><p>O valor mensal (Base) é uma taxa de manutenção, que equivale a 10% do valor de
+                    instalação, cobrindo os custos com manutenção e reposição de equipamentos.</p></li>
+                    <li><p>O cliente Hemolines só paga pelas horas de serviço que utiliza! Ao final do mês,
+                    calculamos o tempo monitorado: para cada hora cobramos R$30,00 por caixa.</p></li>
+                </ul>
+            </div>
+            <div class="info-item2">
+                <h2>Valor Total</h2>
+                <ul>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                </ul>
+            </div>
+    </div>
+</center>
+    <div class="footer">
+
     </div>
 </body>
 
@@ -80,10 +108,10 @@
 
         var porcent_inst = 10 / 100; //10% corresponde a porcentagem do valor inicial, sendo um valor fixo mensal de manutenção
 
-        var vl_fixo = vl_inicial * porcent_inst; //valor fixo corresponde a 10% do valor inicial
+        var vl_mensal = vl_inicial * porcent_inst; //valor mensal (base) corresponde a 10% do valor inicial
 
-        console.log(vl_fixo);//Exibe no console do navegador o valor fixo que será cobra mesmo que o cliente não faça uso do serviço
-
+        console.log(vl_mensal);//Exibe no console do navegador o valor mensal (base) que será cobra mesmo que o cliente não faça uso do serviço
+        
         //min = minutos, monitor = monitoramento, inst = instalacao
 
         var vl_min_caixa = 0.50; // Definimos que 0.50 será o valor cobrado por minuto de monitoramento(cada caixa)
@@ -94,9 +122,15 @@
 
         var vl_total_monitor = num * vl_monitor_min; //Valor total de monitoramento 
 
-        var vl_total_mes = vl_total_monitor + vl_fixo;//Valor tota do mês
+        var vl_total_mes = vl_total_monitor + vl_mensal;//Valor tota do mês
+
+        var vl_totall = vl_mensal + vl_inicial;
 
         console.log(vl_total_mes);//Exibe no console o valor total que será pago por mês ;)
+
+        valor_inicial.innerHTML = `O valor inicial será de R$ ${vl_inicial.toFixed(2)}`;
+        valor_ms.innerHTML = `O valor mensal será de R$ ${vl_mensal.toFixed(2)}`;
+        valor_total.innerHTML = `Você irá pagar no total R$ ${vl_totall.toFixed(2)}`;
 
     }
 </script>
