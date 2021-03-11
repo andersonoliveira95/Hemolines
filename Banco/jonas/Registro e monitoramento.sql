@@ -28,9 +28,10 @@ data_hora Datetime default current_timestamp -- defaut current_timestamp a colun
 
 insert into cliente(nomeEmpresa,telefone,CNPJ,email) values
 ('Instituto Gabriel','+55 (19) 3801-2047','55.908.501/0001-00','info@gabriel.org.br'), -- todos CNPJ's são fictícios aqui
+('Instituto Gabriel','(19) 3801-2047','55.908.501/0001-00','info@gabriel.org.br'), -- todos CNPJ's são fictícios aqui
 ('Abrace','(61) 32098800','30.798.543/0001-00','contato@abrace.com.br'),
 ('Ciras','(79) 3248-0011','31.445.777/0001-00','ciras@ciras.org.br'),
-('Hospital São Lucas da pucrs',' (51) 3320.3000','22.365.876/0001-00','saolucaspucrs@saolucas.org.br'),
+('Hospital São Lucas da pucrs','(51) 3320.3000','22.365.876/0001-00','saolucaspucrs@saolucas.org.br'),
 ('SalvoVidas','(11) 3660 5972','28.755.123/0001-00','contato@salvovidas.com.br'),
 ('Fleury','(11) 3179 0822','79.698.643/0001-00','contato@fleury.com.br');
 
@@ -60,7 +61,7 @@ select * from monitoramento where temperatura <= 0;
 
 select * from monitoramento where temperatura >= 10;
 
-select * from monitoramento where temperatura > 10 or temperatura < 0;
+select * from monitoramento where temperatura > 10 or temperatura < 0; -- Exibir anomalias
 
 update cliente set telefone = '(19) 3801-2047' where idEmpresa = 1;
 
