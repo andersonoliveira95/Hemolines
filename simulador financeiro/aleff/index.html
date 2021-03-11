@@ -7,63 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/estilo.css">
-    <title>Hemolines Solutions - Home</title>
+    <title>Simulador Financeiro - Hemolines Solutions</title>
 </head>
 
 <body>
-    <!-- <nav>
-        <div>
-            <img class="logo" src="assets/img/logo.png" alt="">
-        </div>
-        <i>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Quem somos</a></li>
-                <li><a href="">Nossa Solução</a></li>
-                <li>
-                    <a href="">Contato</a>
-                    <ul>
-                        <li><a href="">Adicionar</a></li>
-                        <li>
-                            <hr>
-                        </li>
-                        <li><a href="">Remover</a></li>
-                        <li>
-                            <hr>
-                        </li>
-                        <li><a href="">Editar</a></li>
-                        <li>
-                            <hr>
-                        </li>
-                        <li><a href="">Consultar</a></li>
-                        <li>
-                            <hr>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </i>
-    </nav> -->
     <div class="left">
-        <center>
-            <img class="logo" src="assets/img/logo.png" alt="">
-        </center>
+        <img src="assets/img/logo.png" alt="Logo Hemolines Solutions">
+        <h1>Solutions</h1>
+
+        <p>Simule o orçamento do transporte do seu produto </p>
+        <p>através do nosso sistema!</p>
     </div>
     <div class="right">
-        <center class="items-right">
-            <h1 class="title">Simulador Financeiro</h1>
+        <h1>Simulador Financeiro</h1>
 
-            <p>Quantidade de amostras:</p>
-            <input type="text" id="qntd_amostras">
-            <br><br>
-            <p>Quantidade de Veículos:</p>
-            <input type="text" id="qntd_veiculos">
-            <br><br>
-            <p>Volume das caixas:</p>
-            <input type="text" id="vol_caixas">
+        <p>Quantidade de caixas:</p>
+        <input type="text" id="quantidade_caixas">
+        
+        <p>Quantidade de Veículos:</p>
+        <input type="text" id="quantidade_veiculos">
             <br>
-            <button onclick="calc_orc()" type="submit">CALCULAR ORÇAMENTO</button>
-        </center>
+        <button onclick="calc_orcamento()">Calcular Orçamento</button>
     </div>
 
     <div class="info" id="info">
@@ -84,22 +48,16 @@
             <p id="valor_total"></p>
         </div>
     </div>
-    <div class="sobre">
-
-    </div>
-    <div class="imagem-sobre">
-
-    </div>
 </body>
 
 </html>
-<script>
-    function calc_orc() {
 
+<script>
+    function calc_orcamento() {
         //Consideramos que será 1 arduino por veículo e 1 sensor por caixa
 
-        var qtd_caixas = 10; //input informada pelo cliente
-        var qtd_veiculos = 12; //input informada pelo cliente
+        var qtd_caixas = Number(quantidade_caixas.value); //input informada pelo cliente
+        var qtd_veiculos = Number(quantidade_veiculos.value); //input informada pelo cliente
 
         var vl_arduino = 60; //valor fixo estipulado nosso
         var vl_sensor = 15; //''''''''
