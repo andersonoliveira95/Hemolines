@@ -55,13 +55,13 @@
 
             <p>Quantidade de amostras:</p>
             <input type="text" id="qntd_amostras">
-                <br><br>
+            <br><br>
             <p>Quantidade de Veículos:</p>
             <input type="text" id="qntd_veiculos">
-                <br><br>
+            <br><br>
             <p>Volume das caixas:</p>
             <input type="text" id="vol_caixas">
-                <br>
+            <br>
             <button onclick="calc_orc()" type="submit">CALCULAR ORÇAMENTO</button>
         </center>
     </div>
@@ -91,26 +91,54 @@
 
     </div>
 </body>
+
 </html>
-    <script>
-        function calc_orc() {
-            if (vol_caixas.value > 10) {
-                alert('Volume máximo permitido de 10 litros!');
-            } else {
-                // recebendo os valores digitados
-                var quantidade_amostras = Number(qntd_amostras.value);
-                var quantidade_veiculos = Number(qntd_veiculos.value);
-                var volume_caixas = Number(vol_caixas.value);
+<script>
+    function calc_orc() {
 
-                var quantidade_caixas = (quantidade_amostras / quantidade_veiculos) / volume_caixas;
-                var total_sensores = quantidade_caixas * quantidade_veiculos;
-                var instalacao = quantidade_veiculos * 200; 
-                var valor = (total_sensores * 12) + 100 + instalacao + 150;       
+        //Consideramos que será 1 arduino por veículo e 1 sensor por caixa
 
-                volume.innerHTML = `Cada caixa terá o volume de ${volume_caixas} litros`;
-                caixas.innerHTML = `Cada veículo transportará ${Math.ceil(quantidade_caixas)} caixa(s)`;
-                sensores.innerHTML = `será utilizado ${Math.ceil(total_sensores)} sensor(es)`;
-                valor_total.innerHTML = `O orçamento será de R$ ${valor.toFixed(2)}`;
-            }
-        }
-    </script>
+        var qtd_caixas = 10; //input informada pelo cliente
+        var qtd_veiculos = 12; //input informada pelo cliente
+
+        var vl_arduino = 60; //valor fixo estipulado nosso
+        var vl_sensor = 15; //''''''''
+
+        //150: valor padrão definido por nós para instalação
+        //35: valor padrão definido por nós para instalação
+
+        var vl_inst_arduino = qtd_veiculos * 150; // valor total de instalação apenas dos arduinos
+        var vl_inst_sensores = qtd_caixas * 35; // valor total de instalação apenas das caixass
+
+        var vl_inst_total = vl_inst_arduino + vl_inst_sensores;// valor total apenas de instalação
+
+        var vl_equip_total = (vl_arduino * qtd_veiculos) + (vl_sensor * qtd_caixas);// valor total dos equipamentos
+
+        var vl_inicial = vl_inst_total + vl_equip_total;//Valor inicial composto por valor de equipamento e instalação deles
+
+        console.log(vl_inicial); //Exibe no console do navegador o valor inicial
+
+
+
+        var porcent_inst = 10 / 100; //10% corresponde a porcentagem do valor inicial, sendo um valor fixo mensal de manutenção
+
+        var vl_fixo = vl_inicial * porcent_inst; //valor fixo corresponde a 10% do valor inicial
+
+        console.log(vl_fixo);//Exibe no console do navegador o valor fixo que será cobra mesmo que o cliente não faça uso do serviço
+
+        //min = minutos, monitor = monitoramento, inst = instalacao
+
+        var vl_min_caixa = 0.50; // Definimos que 0.50 será o valor cobrado por minuto de monitoramento(cada caixa)
+        var vl_monitor_min = vl_min_caixa * qtd_caixas;
+
+        //O valor 5 pode ser outro, pois será um valor digitado pelo cliente
+        var num = 5 * 60; // 5 corresponde ao número de horas usados como exemplo, multiplicamos por 60 para transformar em minutos
+
+        var vl_total_monitor = num * vl_monitor_min; //Valor total de monitoramento 
+
+        var vl_total_mes = vl_total_monitor + vl_fixo;//Valor tota do mês
+
+        console.log(vl_total_mes);//Exibe no console o valor total que será pago por mês ;)
+
+    }
+</script>
