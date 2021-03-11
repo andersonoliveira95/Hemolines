@@ -12,7 +12,7 @@ email varchar(40)
 );
 
 create table servico(
-	idEmpresa int primary key auto_increment, 
+	idServico int primary key auto_increment, 
 	qtdCaixas int not null,
     qtdVeiculos int not null,
 	valorFixo double (15,2),
@@ -22,7 +22,7 @@ create table servico(
 create table monitoramento ( 
 codigoCaixa int primary key,
 temperatura float not null,
-cliente int, -- Esse campo será preenchido com o idEmpresa da tabela cadastro
+cliente int, -- Esse campo será preenchido com o idEmpresa da tabela cliente
 data_hora Datetime default current_timestamp -- defaut current_timestamp a coluna tem o valor padrão fornecido
 );
 
@@ -34,7 +34,7 @@ insert into cliente(nomeEmpresa,razaoSocial,telefone,CNPJ,email) values
 ('SalvoVidas','(11) 3660 5972','28.755.123/0001-00','contato@salvovidas.com.br'),
 ('Fleury','(11) 3179 0822','79.698.643/0001-00','contato@fleury.com.br');
 
-insert into monitoramento(códigoCaixa,temperatura,cliente) values
+insert into monitoramento(codigoCaixa,temperatura,cliente) values
 ('103','30','1'),
 ('504','4','2'),
 ('102','5','1'),
@@ -52,17 +52,20 @@ insert into servico (qtdCaixas, qtdVeiculos, valorFixo, tempoViagem) values
 
 select * from monitoramento;
 
-select * from registro;
+select * from cliente;
+
+select * from servico;
 
 select * from monitoramento where temperatura <= '0';
 
 select * from monitoramento where temperatura >= '10';
 
-update registro set telefone = '(19) 3801-2047' where idEmpresa = 1;
+update cliente set telefone = '(19) 3801-2047' where idEmpresa = 1;
 
-delete from registro where  idEmpresa = 4;
+delete from cliente where  idEmpresa = 4;
 
-alter table registro modify nacionalidade varchar(30);
+alter table cliente modify CNPJ char(14);
 
+select * from servico order by valorFixo;
 
-
+desc cliente;
