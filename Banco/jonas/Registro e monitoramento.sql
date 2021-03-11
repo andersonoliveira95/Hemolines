@@ -1,11 +1,12 @@
 create database hemolines;
 
+drop database hemolines;
+
 use hemolines;
 
 create table cliente (
 idEmpresa int auto_increment primary key, 
 nomeEmpresa varchar(40),
-razaoSocial varchar (80),
 telefone varchar(20),
 CNPJ varchar(20) not null,
 email varchar(40)
@@ -55,6 +56,8 @@ select * from monitoramento;
 select * from cliente;
 
 select * from servico;
+
+truncate servico;
 
 select * from monitoramento where temperatura <= '0';
 
