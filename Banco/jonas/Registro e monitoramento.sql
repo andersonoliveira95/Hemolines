@@ -5,17 +5,17 @@ use hemolines;
 create table cliente (
 idEmpresa int auto_increment primary key, 
 nomeEmpresa varchar(40),
-razaoSocial varchar (80),
 telefone varchar(20),
 CNPJ varchar(20) not null,
 email varchar(40)
 );
 
 create table servico(
+
 	idServico int primary key auto_increment, 
 	qtdCaixas int not null,
     qtdVeiculos int not null,
-	valorFixo double (15,2),
+	valorFixo double,
     tempoViagem time not null
 );
 
@@ -26,7 +26,7 @@ cliente int, -- Esse campo será preenchido com o idEmpresa da tabela cliente
 data_hora Datetime default current_timestamp -- defaut current_timestamp a coluna tem o valor padrão fornecido
 );
 
-insert into cliente(nomeEmpresa,razaoSocial,telefone,CNPJ,email) values
+insert into cliente(nomeEmpresa,telefone,CNPJ,email) values
 ('Instituto Gabriel','+55 (19) 3801-2047','55.908.501/0001-00','info@gabriel.org.br'), -- todos CNPJ's são fictícios aqui
 ('Abrace','(61) 32098800','30.798.543/0001-00','contato@abrace.com.br'),
 ('Ciras','(79) 3248-0011','31.445.777/0001-00','ciras@ciras.org.br'),
@@ -56,15 +56,17 @@ select * from cliente;
 
 select * from servico;
 
-select * from monitoramento where temperatura <= '0';
+select * from monitoramento where temperatura <= 0;
 
-select * from monitoramento where temperatura >= '10';
+select * from monitoramento where temperatura >= 10;
+
+select * from monitoramento where temperatura > 10 or temperatura < 0;
 
 update cliente set telefone = '(19) 3801-2047' where idEmpresa = 1;
 
 delete from cliente where  idEmpresa = 4;
 
-alter table cliente modify CNPJ char(14);
+alter table cliente modify CNPJ varchar(25);
 
 select * from servico order by valorFixo;
 
